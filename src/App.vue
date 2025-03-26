@@ -1,15 +1,15 @@
 <script setup>
 import { ref } from 'vue'
 
-const titleClass = ref('title')
+const awesome = ref(true)
+
+function toggle() {
+  awesome.value = !awesome.value
+}
 </script>
 
 <template>
-  <h1 :class="titleClass">Make me red</h1> <!-- add dynamic class binding here -->
+  <button @click="toggle">Toggle</button>
+  <h1 v-if="awesome">Vue is awesome!</h1>
+  <h1 v-else>Oh no 😢</h1>
 </template>
-
-<style>
-.title {
-  color: red;
-}
-</style>
